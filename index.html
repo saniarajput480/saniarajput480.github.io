@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sania Rajput | Portfolio</title>
+    <!-- Google Fonts for elegant typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary: #1a2a3a; /* Deep elegant navy */
+            --accent: #c5a059;  /* Sophisticated gold */
+            --text: #333333;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            font-family: 'Cinzel', serif;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.95)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #b48f47;
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* About & Core Values */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplified for mobile */
+        }
+
+        .values-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .values-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .values-list li::before {
+            content: '✓';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Vision/Dream Section Card */
+        .dream-card {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent);
+            text-align: center;
+        }
+
+        .dream-card p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Hobbies Section */
+        .hobbies-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hobby-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .hobby-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Contact Form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        form button {
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #243a50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+        
+        footer p {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Sania Rajput</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#vision">My Vision</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Header -->
+    <header id="home">
+        <h1>Sania Rajput</h1>
+        <p>Aspiring Lawyer | Arts Graduate | Dedicated to Justice & Social Contribution</p>
+        <a href="#about" class="btn">Explore My Profile</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div>
+                <p>Hello! I am Sania Rajput, hailing from the peaceful landscape of <strong>Deol village in Una, Himachal Pradesh</strong>. Having successfully completed my +2 education in the Arts stream, I have built a strong foundation in understanding human culture, society, and communication.</p>
+                <br>
+                <p>I firmly believe that with hard work, deep determination, and true confidence, any goal can be turned into reality.</p>
+            </div>
+            <div>
+                <h3>Core Strengths & Qualities</h3>
+                <ul class="values-list">
+                    <li><strong>Hardworking:</strong> Committed to putting in the effort required to master the law.</li>
+                    <li><strong>Honest:</strong> Rooted in integrity, a critical value for the legal profession.</li>
+                    <li><strong>Dedicated:</strong> Driven by a strong sense of purpose to help communities.</li>
+                    <li><strong>Lifelong Learner:</strong> Always enthusiastic about gaining new knowledge and improving myself.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision/Dream Section -->
+    <section id="vision" style="background-color: #f0f4f8; max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">My Professional Dream</h2>
+            <div class="dream-card">
+                <p>"My ultimate dream is to become a successful lawyer. I do not just view law as a profession, but as a powerful medium to stand up for people, protect their rights, and contribute meaningfully to our society."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies">
+        <h2 class="section-title">Creative Expression</h2>
+        <div class="hobbies-container">
+            <div class="hobby-box">
+                <h3>Singing</h3>
+                <p>Music allows me to express my inner creativity, brings happiness to my daily life, and helps keep my focus sharp.</p>
+            </div>
+            <div class="hobby-box">
+                <h3>Dancing</h3>
+                <p>Dancing is a joyful outlet for my energy, keeping me confident, vibrant, and connected to expressive arts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Connect With Me</h2>
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you, Sania! This is a demo template, but your form is structured correctly.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="How can we collaborate or connect?" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sania Rajput. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">From Deol, Una, Himachal Pradesh, India</p>
+    </footer>
+
+</body>
+</html>
